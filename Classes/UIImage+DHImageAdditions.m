@@ -37,7 +37,7 @@
 {
 	UIImage *unifiedImage = nil;
 	CGSize totalImageSize = [self verticalAppendedTotalImageSizeFromImagesArray:imagesArray];
-	UIGraphicsBeginImageContextWithOptions(totalImageSize, NO, 0.f);
+	UIGraphicsBeginImageContextWithOptions(totalImageSize, NO, scale);
 	// For each image found in the array, create a new big image vertically
 	int imageOffsetFactor = 0;
 	for (UIImage *img in imagesArray) {
