@@ -29,7 +29,8 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
 	if (context == NULL) return nil;
     CGContextTranslateCTM(context, -croppingRect.origin.x, -croppingRect.origin.y);
-
+	
+	[self layoutIfNeeded];
 	[self.layer renderInContext:context];
 
 	UIImage *screenshotImage = UIGraphicsGetImageFromCurrentImageContext();
