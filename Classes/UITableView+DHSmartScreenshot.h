@@ -12,23 +12,28 @@
 
 - (UIImage *)screenshot;
 
-- (UIImage *)screenshotOfCellAtIndexPath:(NSIndexPath *)indexPath;
+- (UIImage*)screenshotWithScale:(CGFloat)scale;
 
-- (UIImage *)screenshotOfHeaderViewAtSection:(NSUInteger)section;
+- (UIImage *)screenshotOfCellAtIndexPath:(NSIndexPath *)indexPath scale:(CGFloat)scale;
 
-- (UIImage *)screenshotOfFooterViewAtSection:(NSUInteger)section;
+- (UIImage *)screenshotOfHeaderViewAtSection:(NSUInteger)section scale:(CGFloat)scale;
+
+- (UIImage *)screenshotOfFooterViewAtSection:(NSUInteger)section scale:(CGFloat)scale;
 
 - (UIImage *)screenshotExcludingAllHeaders:(BOOL)withoutHeaders
 					   excludingAllFooters:(BOOL)withoutFooters
-						  excludingAllRows:(BOOL)withoutRows;
+						  excludingAllRows:(BOOL)withoutRows
+                                     scale:(CGFloat)scale;
 
 - (UIImage *)screenshotExcludingHeadersAtSections:(NSSet *)headerSections
 					   excludingFootersAtSections:(NSSet *)footerSections
-						excludingRowsAtIndexPaths:(NSSet *)indexPaths;
+						excludingRowsAtIndexPaths:(NSSet *)indexPaths
+                                            scale:(CGFloat)scale;
 
 - (UIImage *)screenshotOfHeadersAtSections:(NSSet *)headerSections
 						 footersAtSections:(NSSet *)footerSections
-						  rowsAtIndexPaths:(NSSet *)indexPaths;
+						  rowsAtIndexPaths:(NSSet *)indexPaths
+                                     scale:(CGFloat)scale;
 
 @end
 

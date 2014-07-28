@@ -11,6 +11,7 @@
 @interface UIView (DHSmartScreenshot)
 
 - (UIImage *)screenshot;
-- (UIImage *)screenshotForCroppingRect:(CGRect)rect;
+- (UIImage *)screenshotWithScale:(CGFloat)scale;
+- (UIImage *)screenshotForCroppingRect:(CGRect)croppingRect scale:(CGFloat)scale;
 
 @end

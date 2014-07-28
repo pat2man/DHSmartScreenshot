@@ -46,26 +46,29 @@
 {
 	self.screenshotTaken = [self.tableView screenshotExcludingAllHeaders:YES
 													 excludingAllFooters:NO
-														excludingAllRows:NO];
+														excludingAllRows:NO
+                            scale:self.tableView.screenshot.scale];
 }
 
 - (void)takeScreenshotWithoutFooters
 {
 	self.screenshotTaken = [self.tableView screenshotExcludingAllHeaders:NO
 													 excludingAllFooters:YES
-														excludingAllRows:NO];
+														excludingAllRows:NO
+                                                                   scale:self.tableView.window.screen.scale];
 }
 
 - (void)takeScreenshotForRowsOnly
 {
 	self.screenshotTaken = [self.tableView screenshotExcludingAllHeaders:YES
 													 excludingAllFooters:YES
-														excludingAllRows:NO];
+														excludingAllRows:NO
+                                                                   scale:self.tableView.window.screen.scale];
 }
 
 - (void)takeScreenshotForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	self.screenshotTaken = [self.tableView screenshotOfCellAtIndexPath:indexPath];
+	self.screenshotTaken = [self.tableView screenshotOfCellAtIndexPath:indexPath scale:self.tableView.window.screen.scale];
 }
 
 - (void)takeScreenshotWithoutFirstHeader
@@ -73,14 +76,16 @@
 	NSArray *excludedHeadersSections = @[@(0)];
 	self.screenshotTaken = [self.tableView screenshotExcludingHeadersAtSections:[NSSet setWithArray:excludedHeadersSections]
 													 excludingFootersAtSections:nil
-													  excludingRowsAtIndexPaths:nil];
+													  excludingRowsAtIndexPaths:nil
+                                                                          scale:self.tableView.window.screen.scale];
 }
 
 - (void)takeScreenshoOfJustLastTwoFooters
 {
 	NSArray *includeFootersSections = @[@(self.tableView.numberOfSections - 2), @(self.tableView.numberOfSections - 1)];
 	self.screenshotTaken = [self.tableView screenshotOfHeadersAtSections:nil
-													   footersAtSections:[NSSet setWithArray:includeFootersSections] rowsAtIndexPaths:nil];
+													   footersAtSections:[NSSet setWithArray:includeFootersSections] rowsAtIndexPaths:nil
+                                                                   scale:self.tableView.window.screen.scale];
 }
 
 - (void)takeScreenshotForJustRowsOnThisSection:(NSUInteger)section
@@ -89,7 +94,8 @@
 	includedRows = [self.tableView indexPathsForRowsInRect:[self.tableView rectForSection:section]];
 	self.screenshotTaken = [self.tableView screenshotOfHeadersAtSections:nil
 													   footersAtSections:nil
-														rowsAtIndexPaths:[NSSet setWithArray:includedRows]];
+														rowsAtIndexPaths:[NSSet setWithArray:includedRows]
+                            scale:self.tableView.window.screen.scale];
 }
 
 - (void)takeScreenshotForComplexUse
@@ -112,7 +118,8 @@
 	
 	self.screenshotTaken = [self.tableView screenshotOfHeadersAtSections:[NSSet setWithArray:includedHeadersSections]
 													footersAtSections:[NSSet setWithArray:includedFootersSections]
-														rowsAtIndexPaths:[NSSet setWithArray:includedRows]];
+														rowsAtIndexPaths:[NSSet setWithArray:includedRows]
+                            scale:self.tableView.window.screen.scale];
 }
 
 #pragma mark - TableView Delegate

@@ -30,6 +30,11 @@
 
 + (UIImage *)verticalImageFromArray:(NSArray *)imagesArray
 {
+    return [self verticalImageFromArray:imagesArray scale: 0.0];
+}
+
++ (UIImage *)verticalImageFromArray:(NSArray *)imagesArray scale:(CGFloat)scale
+{
 	UIImage *unifiedImage = nil;
 	CGSize totalImageSize = [self verticalAppendedTotalImageSizeFromImagesArray:imagesArray];
 	UIGraphicsBeginImageContextWithOptions(totalImageSize, NO, 0.f);

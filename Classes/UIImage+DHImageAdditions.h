@@ -16,6 +16,6 @@
 
 @interface UIImage (DHImageFromArrayUtils)
 
-+ (UIImage *)verticalImageFromArray:(NSArray *)imagesArray;
++ (UIImage *)verticalImageFromArray:(NSArray *)imagesArray scale:(CGFloat)scale;
 
 @end
